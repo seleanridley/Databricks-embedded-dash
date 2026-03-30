@@ -77,17 +77,20 @@ def mint_databricks_token():
 
 @app.route("/api/dashboard/embed-config", methods=["GET"])
 def get_embed_config():
-    token_data = mint_databricks_token()
+    try:
+        token_data = mint_databricks_token()
 
-    return jsonify({
-        "workspace_url": os.environ.get("DATABRICKS_WORKSPACE_URL"),
-        "workspace_id": os.environ.get("DATABRICKS_WORKSPACE_ID"),
-        "dashboard_id": os.environ.get("DATABRICKS_DASHBOARD_ID"),
-        "warehouse_id": os.environ.get("DATABRICKS_WAREHOUSE_ID"),
-        "embed_token": token_data["access_token"],
-        "token_expires_in": token_data["expires_in"],
-    })
-
+        return jsonify({
+            "workspace_url": os.environ.get("DATABRICKS_WORKSPACE_URL"),
+            "workspace_id": os.environ.get("DATABRICKS_WORKSPACE_ID"),
+            "dashboard_id": os.environ.get("DATABRICKS_DASHBOARD_ID"),
+            "warehouse_id": os.environ.get("DATABRICKS_WAREHOUSE_ID"),
+            "embed_token": token_data["access_token"],
+            "token_expires_in": token_data["expires_in"],
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+        
 @app.route("/api/health", methods=["GET"])
 def health_check():
     return jsonify({
