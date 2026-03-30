@@ -1,12 +1,17 @@
 version: 1.0
 runtime: python311
+
 build:
   commands:
     build:
+      - cd backend
       - pip3 install -r requirements.txt
+
 run:
   runtime-version: 3.11
-  command: gunicorn -b 0.0.0.0:8080 app:app
+  pre-run:
+    - cd /app/backend
+    - pip3 install -r requirements.txt
+  command: cd /app/backend && python3 -m gunicorn -b 0.0.0.0:$PORT app:app
   network:
     port: 8080
-
