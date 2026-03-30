@@ -15,6 +15,7 @@ const App = () => {
         setError(null);
 
         const response = await axios.get("/api/dashboard/embed-config");
+        console.log(response);
         setDashboardConfig(response.data);
       } catch (err) {
         console.error("Dashboard config error:", err);
