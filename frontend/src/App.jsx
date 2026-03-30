@@ -20,8 +20,7 @@ const App = () => {
 
   // Dummy users available for switching
   const AVAILABLE_USERS = [
-    { username: 'alice', name: 'Alice Johnson', department: 'Sales' },
-    { username: 'bob', name: 'Bob Smith', department: 'Engineering' }
+    { username: 'sridley4@student.gsu.edu', name: 'Dominic Ridley', department: 'GSU' },
   ]
 
   // Check if user is already logged in
