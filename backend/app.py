@@ -26,17 +26,11 @@ CORS(app, supports_credentials=True)
 
 # Dummy users for demonstration (simulating row-level security)
 DUMMY_USERS = {
-    'alice': {
-        'id': 'user_alice',
-        'name': 'Alice Johnson',
-        'email': 'alice@example.com',
-        'department': 'Sales'
-    },
-    'bob': {
-        'id': 'user_bob',
-        'name': 'Bob Smith',
-        'email': 'bob@example.com',
-        'department': 'Engineering'
+    'Dominic': {
+        'id': 'sridley4@student.gsu.edu',
+        'name': 'Dominic Ridley',
+        'email': 'sridley4@student.gsu.edu',
+        'department': 'GSU'
     }
 }
 
@@ -171,7 +165,7 @@ def login():
     username = data.get('username')
     
     # Validate username exists
-    user = DUMMY_USERS.get(username)
+    user = .get(username)
     if not user:
         return jsonify({'error': 'Invalid username'}), 401
     
