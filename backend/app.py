@@ -20,10 +20,9 @@ load_dotenv('.env')
 
 app = Flask(__name__)
 app.secret_key = 'dev-secret-key-for-demo'  # Simple default for development
-app.config['DEBUG'] = True  # Development mode
 
 # Enable CORS for frontend communication
-CORS(app, supports_credentials=True, origins=['http://localhost:3000'])
+CORS(app, supports_credentials=True)
 
 # Dummy users for demonstration (simulating row-level security)
 DUMMY_USERS = {
