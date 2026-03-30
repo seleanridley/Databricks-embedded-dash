@@ -14,7 +14,9 @@ const App = () => {
         setLoading(true);
         setError(null);
 
-        const response = await axios.get("/api/dashboard/embed-config");
+        const API_BASE = import.meta.env.VITE_API_BASE_URL;
+        console.log(API_BASE);
+        const response = await axios.get(`${API_BASE}/api/dashboard/embed-config`);;
         console.log(response);
         setDashboardConfig(response.data);
       } catch (err) {
