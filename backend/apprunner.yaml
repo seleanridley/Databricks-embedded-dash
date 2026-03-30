@@ -14,3 +14,10 @@ run:
   command: gunicorn -b 0.0.0.0:8080 app:app
   network:
     port: 8080
+
+  runtime-environment-secrets:
+    DATABRICKS_DASHBOARD_ID: arn:aws:secretsmanager:us-east-1:346818912604:secret:GOI_Dashboard-Us10co:DATABRICKS_DASHBOARD_ID
+    DATABRICKS_CLIENT_SECRET: arn:aws:secretsmanager:us-east-1:346818912604:secret:GOI_Dashboard-Us10co:DATABRICKS_CLIENT_SECRET
+    DATABRICKS_CLIENT_ID: arn:aws:secretsmanager:us-east-1:346818912604:secret:GOI_Dashboard-Us10co:DATABRICKS_CLIENT_ID
+    DATABRICKS_CLIENT_SECRET: arn:aws:secretsmanager:us-east-1:346818912604:secret:GOI_Dashboard-Us10co:DATABRICKS_CLIENT_SECRET
+    DATABRICKS_WORKSPACE_URL: arn:aws:secretsmanager:us-east-1:346818912604:secret:GOI_Dashboard-Us10co:DATABRICKS_WORKSPACE_URL
